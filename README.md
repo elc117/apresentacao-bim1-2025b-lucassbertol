@@ -14,6 +14,8 @@ calcDistance lat1 lon1 lat2 lon2 =
     in r * c
 ~~~
 
+## Resolução
+
 ➡️ O **'where'** permite definir variáveis e funções auxiliares **APÓS** a expressão principal, diferente do **'let'** que vem **ANTES** de uma expressão;
 
 ➡️ **'Where'** é semelhante a "onde 'x' = ..." em matemática.
