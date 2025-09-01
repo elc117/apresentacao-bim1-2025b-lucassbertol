@@ -1,6 +1,6 @@
 # Prática aula 8
 ## Questão 01
--- REESCREVA este código usando where
+➡️ REESCREVA este código usando where
 ~~~haskell
 calcDistance :: Double -> Double -> Double -> Double -> Double
 calcDistance lat1 lon1 lat2 lon2 = 
@@ -13,3 +13,17 @@ calcDistance lat1 lon1 lat2 lon2 =
         c = 2.0 * atan2 (sqrt a) (sqrt (1.0 - a))
     in r * c
 ~~~
+
+# Uso de WHERE
+## Conceito básico
+
+➡️ O 'where' permite definir variáveis e funções auxiliares APÓS a expressão principal;
+
+➡️ Semelhante a "...onde x..." em matemática.
+~~~~haskell
+quadratica :: Double -> Double -> Double -> Double -> Double
+quadratica a b c x = resultado
+  where
+    resultado = a * x^2 + b * x + c
+~~~~
+➡️ "Onde 'resultado' = a * x^2 + b * x + c"
