@@ -66,4 +66,7 @@ poiList = [("Centro de Tecnologia", -29.713318, -53.71663),
            ("Casa do Estudante Universitário - CEU II", -29.71801, -53.71465)]
 ~~~
 
+## Resoluçao
+
+
 
