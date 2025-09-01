@@ -19,7 +19,7 @@ calcDistance lat1 lon1 lat2 lon2 =
 
 ➡️ O 'where' permite definir variáveis e funções auxiliares APÓS a expressão principal;
 
-➡️ Semelhante a "...onde x..." em matemática.
+➡️ Semelhante a "onde 'x' = ..." em matemática.
 ~~~~haskell
 quadratica :: Double -> Double -> Double -> Double -> Double
 quadratica a b c x = resultado
