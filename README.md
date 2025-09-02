@@ -167,6 +167,9 @@ https://stackoverflow.com/questions/27609062/what-is-the-difference-between-mapm
 
 https://wiki-haskell-org.translate.goog/All_About_Monads?_x_tr_sl=en&_x_tr_tl=pt&_x_tr_hl=pt&_x_tr_pto=tc
 
+<img width="128" height="128" alt="image" src="https://github.com/user-attachments/assets/5e8c17ec-13e0-4192-9a60-9103a4ada09a" />
+
+
 
 
 
