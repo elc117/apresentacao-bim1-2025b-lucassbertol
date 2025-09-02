@@ -20,6 +20,8 @@ calcDistance lat1 lon1 lat2 lon2 =
 
 ➡️ **`where`** é semelhante a "onde 'x' = ..." em matemática.
 
+➡️ **`let`** é semelhante a "seja 'x' = ..." em matemática.
+
 ~~~haskell
 calcDistance :: Double -> Double -> Double -> Double -> Double
 calcDistance lat1 lon1 lat2 lon2 = r * c
@@ -155,6 +157,8 @@ mapM_ print [1,2,3]             -- Imprime 3 números, não guarda nada
 ➡️ `mapM_` = executa ações E descarta os resultados - utiliza-se quando os resultados não são necessários, apenas os *side-effects*.
 
 ➡️ `mapM` = executa ações E retorna os resultados - utiliza-se quando precisa-se dos resultados.
+
+______________________
 
 # Referências
 https://hoogle.haskell.org/?hoogle=mapM_
