@@ -152,9 +152,9 @@ mapM_ print [1,2,3]             -- Imprime 3 números, não guarda nada
 
 ## Diferenças entre `mapM_` e `mapM`
 
-➡️ `mapM_` = executa ações E descarta os resultados
+➡️ `mapM_` = executa ações E descarta os resultados - utiliza-se quando os resultados não são necessários, apenas os *side-effects*.
 
-➡️ `mapM` = executa ações E retorna os resultados
+➡️ `mapM` = executa ações E retorna os resultados - utiliza-se quando precisa-se dos resultados.
 
 # Referências
 https://hoogle.haskell.org/?hoogle=mapM_
