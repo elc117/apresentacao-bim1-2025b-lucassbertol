@@ -16,9 +16,9 @@ calcDistance lat1 lon1 lat2 lon2 =
 
 ## Resolução
 
-➡️ O **'where'** permite definir variáveis e funções auxiliares **APÓS** a expressão principal, diferente do **'let'** que vem **ANTES** de uma expressão;
+➡️ O **`where`** permite definir variáveis e funções auxiliares **APÓS** a expressão principal, diferente do **`let`** que vem **ANTES** de uma expressão;
 
-➡️ **'Where'** é semelhante a "onde 'x' = ..." em matemática.
+➡️ **`where`** é semelhante a "onde 'x' = ..." em matemática.
 
 ~~~haskell
 calcDistance :: Double -> Double -> Double -> Double -> Double
@@ -45,7 +45,7 @@ calcDistance lat1 lon1 lat2 lon2 = r * c
 
 # Questão 2
 
-➡️ Complete a linha abaixo para definir `distances` como uma nova lista construída a partir de poiList. A nova lista será uma lista de tuplas contendo, para cada POI, seu nome e sua distância até o ponto de referência, dado por givenLat e givenLon.
+➡️ Complete a linha abaixo para definir `distances` como uma nova lista construída a partir de poiList. A nova lista será uma lista de tuplas contendo, para cada POI, seu nome e sua distância até o ponto de referência, dado por `givenLat` e `givenLon`.
 
 ~~~haskell
   let distances = COMPLETE
@@ -69,7 +69,7 @@ poiList = [("Centro de Tecnologia", -29.713318, -53.71663),
 ~~~
 
 ## Resolução
-### ❌ Erro ao resolver
+### ❌ Erro ao resolver:
 
 ~~~haskell
   let distances = map (\(n,lat,lon) -> (n, calcDistance givenLat givenLon)) poiList
@@ -77,9 +77,25 @@ poiList = [("Centro de Tecnologia", -29.713318, -53.71663),
   mapM_ (\(n, d) -> printf "%s: %f\n" n d) distances
 ~~~
 
-*O erro foi esquecer de passar `lat` e `lon` para a função `calcDistance`, resultando em um erro de compilação.*
+*O erro foi esquecer de passar `lat` e `lon` para a função `calcDistance` e não converter `givenLat` e `givenLon` de `float` para `double`, resultando em um erro de compilação.*
 
 <img width="1913" height="1072" alt="image" src="https://github.com/user-attachments/assets/6f51c408-0b13-423a-98ac-3e050f982e2c" />
+
+## ✅ Jeito correto: 
+~~~haskell
+  let distances = map (\(nome, lat, lon) -> (nome, calcDistance (realToFrac givenLat) (realToFrac givenLon) lat lon)) poiList
+  putStrLn "\n==> Distância de cada ponto até o ponto de referência:"
+  mapM_ (\(n, d) -> printf "%s: %f\n" n d) distances
+~~~
+
+➡️ Para cada tupla (nome, lat, lon), foi criado uma nova tupla (nome, distância)
+
+➡️ Calcula-se a distância usando a função `calcDistance`
+
+➡️ Converte-se `givenLat` e `givenLon` de `Float` para `Double` usando `realToFrac`
+
+<img width="1916" height="1075" alt="image" src="https://github.com/user-attachments/assets/b7856764-0f70-4ba8-bb81-c1a9d1839b9a" />
+
 
 
 
