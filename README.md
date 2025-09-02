@@ -34,7 +34,7 @@ calcDistance lat1 lon1 lat2 lon2 = r * c
 ~~~
 
 
-*A principal diferença é que com 'where' as definições locais vêm após a expressão principal, deixando o código mais limpo e destacando primeiro o resultado final (r * c)*  
+*A principal diferença é que com `where` as definições locais vêm após a expressão principal, deixando o código mais limpo e destacando primeiro o resultado final (r * c)*  
 
 ## Comparação de resultados
 
@@ -94,7 +94,74 @@ poiList = [("Centro de Tecnologia", -29.713318, -53.71663),
 
 ➡️ Converte-se `givenLat` e `givenLon` de `Float` para `Double` usando `realToFrac`
 
-<img width="1916" height="1075" alt="image" src="https://github.com/user-attachments/assets/b7856764-0f70-4ba8-bb81-c1a9d1839b9a" />
+<img width="1907" height="1058" alt="image" src="https://github.com/user-attachments/assets/653b3796-7bb5-4d40-9671-983c155cb33b" />
+
+# Questão 3
+
+➡️Complete a linha abaixo para definir `selectedPOIs` como uma nova lista construída a partir de `poiList`. A nova lista deverá conter apenas os pontos de interesse cuja distância do ponto de referência seja >= `MaxDistance`
+
+~~~haskell
+  let selectedPOIs = COMPLETE 
+  printf "\n==> Pontos distantes do ponto de referência (%.6f, %.6f):\n" givenLat givenLon
+  mapM_ print selectedPOIs
+~~~
+~~~haskell
+-- Latitude e longitude de alguns Pontos de Interesse na UFSM
+poiList :: [(String, Double, Double)]
+poiList = [("Centro de Tecnologia", -29.713318, -53.71663),
+           ("Biblioteca Central", -29.71566, -53.71523),
+           ("Centro de Convenções", -29.72237, -53.71718),
+           ("Planetário", -29.72027, -53.71726),
+           ("Reitoria da UFSM", -29.72083, -53.71479),
+           ("Restaurante Universitário 2", -29.71400, -53.71937),
+           ("HUSM", -29.71368, -53.71536),
+           ("Pulsar Incubadora Tecnológica - Prédio 2", -29.71101, -53.71634),
+           ("Pulsar Incubadora Tecnológica - Prédio 61H", -29.72468, -53.71335),
+           ("Casa do Estudante Universitário - CEU II", -29.71801, -53.71465)]
+~~~
+
+## Resolução
+
+~~~haskell
+let selectedPOIs = filter (\(nome, lat, lon) -> calcDistance (realToFrac givenLat) (realToFrac givenLon) lat lon >= maxDistance) poiList
+printf "\n==> Pontos distantes do ponto de referência (%.6f, %.6f):\n" givenLat givenLon
+mapM_ print selectedPOIs
+~~~
+
+
+➡️ `\(nome, lat, lon) ->` é uma função lambda que recebe uma tupla de 3 elementos: (`nome`, `lat`, `lon`) que representa um POI
+
+➡️ `calcDistance` calcula a distância entre o ponto de referência e o POI atual
+
+➡️ Usa-se `filter` para selecionar apenas os elementos que atendem à condição, a condição é que a distância calculada seja >= `maxDistance` 
+
+<img width="1903" height="1065" alt="image" src="https://github.com/user-attachments/assets/338f65fd-9a82-41c2-9983-1b419aa4efa6" />
+
+*`selectedPOIs` será uma lista contendo apenas os POIs que estão a 1.5 km ou mais de distância do ponto de referência (Jardim Botânico), mantendo o formato original das tuplas (nome, latitude, longitude).*
+
+# Funções desconhecidas:
+
+## ⚪ `mapM_` 
+
+➡️ É útil para executar algo apenas para seus efeitos colaterais.
+
+~~~haskell
+mapM_ print [1,2,3]             -- Imprime 3 números, não guarda nada
+~~~
+*O _ significa "descarta o resultado" - use quando só importa a ação, não o retorno*
+
+## Diferenças entre `mapM_` e `mapM`
+
+➡️ `mapM_` = executa ações E descarta os resultados
+
+➡️ `mapM` = executa ações E retorna os resultados
+
+# Referências
+https://hoogle.haskell.org/?hoogle=mapM_
+
+https://stackoverflow.com/questions/27609062/what-is-the-difference-between-mapm-and-mapm-in-haskell
+
+https://wiki-haskell-org.translate.goog/All_About_Monads?_x_tr_sl=en&_x_tr_tl=pt&_x_tr_hl=pt&_x_tr_pto=tc
 
 
 
